@@ -86,13 +86,13 @@ public class ExportLoginListController {
             }
         }
         if (!listofselected.isEmpty()) {
-            String SecretKey = "Login";
+            String SecretKey = "Alarm";
             File dir = directoryChooser.showDialog(stage);
             if (dir == null) {
                 fe.export(ErrorFilelocation, "1");
                 open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
             } else {
-                SaveFilelocation = dir.getPath() + "/LoginList.loginfo";
+                SaveFilelocation = dir.getPath() + "/AlarmList.loginfo";
                 saveLogin += LoginListToString(listofselected);
                 saveLogin.replace(" ", "_");
                 saveLogin.replace("\\n", "!@");

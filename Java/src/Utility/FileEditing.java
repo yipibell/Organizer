@@ -27,8 +27,9 @@ public class FileEditing {
         }
         return null;
     }
+
     /*bytes*/
-    public void SavebitFile(byte[] byts, String path){
+    public void SavebitFile(byte[] byts, String path) {
         try (FileOutputStream fos = new FileOutputStream(path)) {
             fos.write(byts);
             fos.close();
@@ -37,13 +38,13 @@ public class FileEditing {
         }
     }
 
-    public byte[] LoadbitFile(String path){
+    public byte[] LoadbitFile(String path) {
         byte[] byts;
         try (FileInputStream fis = new FileInputStream(path)) {
-            return byts=fis.readAllBytes();
+            return byts = fis.readAllBytes();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return byts=null;
+        return byts = null;
     }
 }

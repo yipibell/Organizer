@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.VBox?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:id="Menu" prefHeight="220.0" prefWidth="150.0"
-      xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Logger.Menu.MenuController">
+      xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Alarm.MainScreenAlarmer.Menu.MenuController">
     <children>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                 mnemonicParsing="false" onAction="#Addanewlogin" prefHeight="44.0" prefWidth="150.0"

@@ -25,7 +25,7 @@ public class MenuController {
         Stage stage = (Stage) Menu.getScene().getWindow();
         Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/MainScreenLogger/Main.fxml"));
         Scene scene = new Scene(parent);
-        stage.setTitle("Add new Login id");
+        stage.setTitle("Add new Alarm id");
         stage.setScene(scene);
     }
 
@@ -35,6 +35,15 @@ public class MenuController {
         Parent parent = FXMLLoader.load(getClass().getResource("/About/About.fxml"));
         Scene scene = new Scene(parent);
         stage.setTitle("About");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void Alaemer(ActionEvent event) throws IOException {
+        Stage stage = (Stage) Menu.getScene().getWindow();
+        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/Main.fxml"));
+        Scene scene = new Scene(parent);
+        stage.setTitle("Add new Alarm id");
         stage.setScene(scene);
     }
 

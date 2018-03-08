@@ -49,7 +49,7 @@ public class ExportLoginController {
 
     @FXML
     void Export(ActionEvent event) throws Exception {
-        String SecretKey = "Login";
+        String SecretKey = "Alarm";
         Stage stage = (Stage) (EpxortLoginPane.getScene().getWindow());
         DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setTitle("Where do you want to save that login?");

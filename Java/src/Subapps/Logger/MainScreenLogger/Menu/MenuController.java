@@ -1,4 +1,4 @@
-package Subapps.Logger.Menu;
+package Subapps.Logger.MainScreenLogger.Menu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class MenuController {
         Stage stage = (Stage) Menu.getScene().getWindow();
         Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Actions/AddLogin/AddLogin.fxml"));
         Scene scene = new Scene(parent);
-        stage.setTitle("Add new Login id");
+        stage.setTitle("Add new Alarm id");
         stage.setScene(scene);
     }
 
@@ -46,7 +46,7 @@ public class MenuController {
         Stage stage = (Stage) Menu.getScene().getWindow();
         Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Actions/ExportLoginList/ExportLoginList.fxml"));
         Scene scene = new Scene(parent);
-        stage.setTitle("Export Login list");
+        stage.setTitle("Export Alarm list");
         stage.setScene(scene);
     }
 

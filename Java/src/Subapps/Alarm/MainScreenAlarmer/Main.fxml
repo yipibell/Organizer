@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Alarm.MainScreenAlarmer.MainController">
+</AnchorPane>

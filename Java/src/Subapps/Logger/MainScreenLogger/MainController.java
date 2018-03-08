@@ -3,6 +3,8 @@ package Subapps.Logger.MainScreenLogger;
 
 import Subapps.Logger.Login.Login;
 import Subapps.Logger.Login.LoginList;
+import Utility.FileEditing;
+import Utility.OpenNewWindow;
 import Utility.SwichWindow;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
@@ -31,7 +33,7 @@ public class MainController {
     private AnchorPane MainScreen;
     @FXML
     private JFXDrawer MenuDrawer;
-    /*Login info Table*/
+    /*Alarm info Table*/
     @FXML
     private TableView<Login> Tab;
     @FXML
@@ -40,6 +42,10 @@ public class MainController {
     private TableColumn<Login, String> DescriptionTab;
     private LoginList loginlist = new LoginList();
     private ObservableList<Login> LoginObservableList = FXCollections.observableArrayList();
+    /*Table Menu*/
+    private FileEditing fe = new FileEditing();
+    private String ErrorFilelocation = "Java/src/Utility/Error/Error.txt";
+    private OpenNewWindow open = new OpenNewWindow();
 
     private void MenuButtonControll() {
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(MenuButton);
@@ -54,7 +60,7 @@ public class MainController {
     }
 
     private void Menu() throws IOException {
-        VBox box = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Menu/Menu.fxml"));
+        VBox box = FXMLLoader.load(getClass().getResource("/Subapps/Logger/MainScreenLogger/Menu/Menu.fxml"));
         MenuDrawer.setSidePane(box);
     }
 
@@ -72,40 +78,63 @@ public class MainController {
         Tab.setItems(LoginObservableList);
     }
 
-    /*Table Menu*/
+    private boolean SelectChecker(Login obj) {
+        boolean valid = false;
+        Login login = obj;
+        if (obj == null) {
+            fe.export(ErrorFilelocation, "4");
+            open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
+            valid = false;
+        } else {
+            valid = true;
+        }
+        ;
+        return valid;
+    }
+
     @FXML
     private void RCMenuDelete(ActionEvent actionEvent) throws IOException {
-        loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
-        Stage stage = (Stage) (MainScreen.getScene().getWindow());
-        swich.SwichNewWindow("/Subapps/Logger/Actions/DeleteLogin/DeleteLogin.fxml", stage);
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Logger/Actions/DeleteLogin/DeleteLogin.fxml", stage);
+        }
     }
 
     @FXML
     public void RCMenuEdit(ActionEvent actionEvent) throws IOException {
-        loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
-        Stage stage = (Stage) (MainScreen.getScene().getWindow());
-        swich.SwichNewWindow("/Subapps/Logger/Actions/EditLogin/EditLogin.fxml", stage);
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Logger/Actions/EditLogin/EditLogin.fxml", stage);
+        }
     }
 
     @FXML
     public void RCMenuGetinfo(ActionEvent actionEvent) throws IOException {
-        loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
-        Stage stage = (Stage) (MainScreen.getScene().getWindow());
-        swich.SwichNewWindow("/Subapps/Logger/Actions/ShowLogin/ShowLogin.fxml", stage);
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Logger/Actions/ShowLogin/ShowLogin.fxml", stage);
+        }
     }
 
     @FXML
     public void RCMenuExport(ActionEvent actionEvent) throws IOException {
-        loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
-        Stage stage = (Stage) (MainScreen.getScene().getWindow());
-        swich.SwichNewWindow("/Subapps/Logger/Actions/ExportLogin/ExportLogin.fxml", stage);
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            loginlist.SaveLogin(Tab.getSelectionModel().getSelectedItem(), loginlist.getLoginList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Logger/Actions/ExportLogin/ExportLogin.fxml", stage);
+        }
     }
 
     @FXML
     public void RCMenuCopy(ActionEvent actionEvent) {
-        loginlist.getLoginList().add(Tab.getSelectionModel().getSelectedItem());
-        LoginObservableList.add(Tab.getSelectionModel().getSelectedItem());
-        loginlist.SaveLoginList();
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            loginlist.getLoginList().add(Tab.getSelectionModel().getSelectedItem());
+            LoginObservableList.add(Tab.getSelectionModel().getSelectedItem());
+            loginlist.SaveLoginList();
+        }
     }
     /*Starter Method*/
 
