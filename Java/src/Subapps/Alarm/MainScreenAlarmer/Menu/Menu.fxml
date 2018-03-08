@@ -6,14 +6,14 @@
       xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Alarm.MainScreenAlarmer.Menu.MenuController">
     <children>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#Addanewlogin" prefHeight="44.0" prefWidth="150.0"
-                text="Add  a new login "/>
+                mnemonicParsing="false" onAction="#a" prefHeight="44.0" prefWidth="150.0"
+                text="a"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#ImportLogin" prefHeight="44.0" prefWidth="150.0"
-                text="Import logins from file"/>
+                mnemonicParsing="false" onAction="#a" prefHeight="44.0" prefWidth="150.0"
+                text="a"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#ExportLoginlist" prefHeight="44.0" prefWidth="150.0"
-                text="Export a list of logins"/>
+                mnemonicParsing="false" onAction="#a" prefHeight="44.0" prefWidth="150.0"
+                text="a"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                 mnemonicParsing="false" onAction="#About" prefHeight="44.0" prefWidth="150.0" text="About"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"

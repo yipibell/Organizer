@@ -8,7 +8,7 @@
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                 mnemonicParsing="false" onAction="#Logger" prefHeight="44.0" prefWidth="150.0" text="Logger"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#Alarmer" prefHeight="44.0" prefWidth="150.0" text="."/>
+                mnemonicParsing="false" onAction="#Alarmer" prefHeight="44.0" prefWidth="150.0" text="Alarmer"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                 mnemonicParsing="false" prefHeight="44.0" prefWidth="150.0" text="."/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"

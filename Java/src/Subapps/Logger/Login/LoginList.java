@@ -13,10 +13,10 @@ public class LoginList {
     private CommonCommands CC = new CommonCommands();
     private FileEditing fe = new FileEditing();
     private Encryption encryption;
-    private String SaveFilelocation = "Java/src/Subapps/Logger/Alarm/SavedAlarmList.loginfo";
+    private String SaveFilelocation = "Java/src/Subapps/Logger/Login/SavedLoginList.loginfo";
     private List<Login> LoginList = new ArrayList();
     /*Selected login Save & Load*/
-    private String SelectedSaveFilelocation = "Java/src/Subapps/Logger/Alarm/OperetedAlarm.loginfo";
+    private String SelectedSaveFilelocation = "Java/src/Subapps/Logger/Login/OperetedLogin.loginfo";
     private int SavedLoginIndex;
 
     public LoginList() {

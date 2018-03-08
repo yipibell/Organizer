@@ -1,8 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
-            minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
-            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Alarm.MainScreenAlarmer.MainController">
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Subapps.Alarm.MainScreenAlarmer.MainController">
+    <children>
+        <JFXHamburger fx:id="MenuButton" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <Label alignment="CENTER" layoutX="136.0" layoutY="17.0" text="Alarmer" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="Clockpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Clock" prefHeight="50.0" prefWidth="130.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+              <VBox alignment="CENTER" layoutX="-0.0" layoutY="-0.0" prefHeight="50.0" prefWidth="130.0">
+                  <children>
+                      <Text fx:id="Date" textAlignment="CENTER">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Text>
+                      <Text fx:id="Time" textAlignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Text>
+                      <Text fx:id="Day" textAlignment="CENTER">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Text>
+                  </children>
+              </VBox>
+          </children>
+      </AnchorPane>
+        <JFXDrawer fx:id="MenuDrawer" defaultDrawerSize="150.0" layoutX="10.0" layoutY="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+    </children>
 </AnchorPane>
