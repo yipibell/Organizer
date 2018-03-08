@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Logger.MainScreenLogger.MainController">
+    <children>
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" text="Welcom to Loger:"
+               AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="Tab" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0"
+                   AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0">
+            <columns>
+                <TableColumn fx:id="SiteURLTab" maxWidth="112.0" minWidth="112.0" prefWidth="112.0" resizable="false"
+                             text="Site URL"/>
+                <TableColumn fx:id="DescriptionTab" maxWidth="112.0" minWidth="112.0" prefWidth="112.0"
+                             resizable="false" text="Description"/>
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#RCMenuGetinfo" text="Get info"/>
+                        <MenuItem mnemonicParsing="false" onAction="#RCMenuEdit" text="Edit"/>
+                        <MenuItem mnemonicParsing="false" onAction="#RCMenuDelete" text="Delete"/>
+                        <MenuItem mnemonicParsing="false" onAction="#RCMenuCopy" text="Copy"/>
+                        <MenuItem mnemonicParsing="false" onAction="#RCMenuExport" text="Export"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <JFXHamburger fx:id="MenuButton" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+        <JFXDrawer fx:id="MenuDrawer" defaultDrawerSize="150.0" layoutX="10.0" layoutY="10.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+    </children>
+</AnchorPane>

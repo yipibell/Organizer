@@ -21,39 +21,22 @@ public class MenuController {
     }
 
     @FXML
-    void Addanewlogin(ActionEvent event) throws IOException {
+    void Logger(ActionEvent event) throws IOException {
         Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Actions/AddLogin/AddLogin.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/MainScreenLogger/Main.fxml"));
         Scene scene = new Scene(parent);
         stage.setTitle("Add new Login id");
         stage.setScene(scene);
     }
 
     @FXML
-    void ImportLogin(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Actions/ImportLogin/ImportLogin.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Import Logins from file");
-        stage.setScene(scene);
-    }
-
-    @FXML
-    void ExportLoginlist(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Actions/ExportLoginList/ExportLoginList.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Export Login list");
-        stage.setScene(scene);
-    }
-
-    @FXML
     void About(ActionEvent event) throws IOException {
         Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Actions/About/About.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/About/About.fxml"));
         Scene scene = new Scene(parent);
         stage.setTitle("About");
         stage.setScene(scene);
     }
+
 
 }

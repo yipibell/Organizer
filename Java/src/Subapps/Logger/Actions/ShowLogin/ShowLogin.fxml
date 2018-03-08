@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="ShowLoginPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Logger.Actions.ShowLogin.ShowLoginController">
+    <children>
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+               text="The Login information:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+               AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#CopyUsername" prefHeight="25.0"
+                prefWidth="65.0" text="Copy Username" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0">
+            <font>
+                <Font size="7.0"/>
+            </font>
+        </Button>
+        <Button layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#CopyPassword"
+                prefHeight="25.0" prefWidth="65.0" text="Copy Password" AnchorPane.leftAnchor="20.0"
+                AnchorPane.topAnchor="75.0">
+            <font>
+                <Font size="7.0"/>
+            </font>
+        </Button>
+        <Button layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#CopyURL"
+                prefHeight="25.0" prefWidth="65.0" text="Copy URL" AnchorPane.leftAnchor="20.0"
+                AnchorPane.topAnchor="105.0">
+            <font>
+                <Font size="7.0"/>
+            </font>
+        </Button>
+        <Button layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" mnemonicParsing="false" onAction="#CopyDescription"
+                prefHeight="25.0" prefWidth="65.0" text="Copy Description" AnchorPane.leftAnchor="20.0"
+                AnchorPane.topAnchor="135.0">
+            <font>
+                <Font size="7.0"/>
+            </font>
+        </Button>
+        <TextField fx:id="UsernameOP" editable="false" prefHeight="25.0" prefWidth="175.0" AnchorPane.leftAnchor="95.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0"/>
+        <PasswordField fx:id="PasswordOP" editable="false" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="95.0"
+                       AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0"/>
+        <TextField fx:id="URLOP" editable="false" layoutX="10.0" layoutY="10.0" AnchorPane.leftAnchor="95.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="105.0"/>
+        <TextField fx:id="DescriptionOP" editable="false" layoutX="20.0" layoutY="20.0" AnchorPane.leftAnchor="95.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="135.0"/>
+        <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="130.0" text="Back"
+                        textAlignment="CENTER"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

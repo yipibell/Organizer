@@ -13,7 +13,7 @@ public class ErrorController {
     @FXML
     public Text ErrorText;
     private FileEditing fe = new FileEditing();
-    private String ErrorFilelocation = "src/Utility/Error/Error.txt";
+    private String ErrorFilelocation = "Java/src/Utility/Error/Error.txt";
     private CommonCommands CC = new CommonCommands();
     @FXML
     private AnchorPane rootPane;

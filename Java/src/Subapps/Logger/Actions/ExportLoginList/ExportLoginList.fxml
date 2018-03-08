@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="EpxortLoginPane" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Logger.Actions.ExportLoginList.ExportLoginListController">
+    <children>
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="20.0"
+               text="By exporting this information you expose" AnchorPane.leftAnchor="10.0"
+               AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="3.0"/>
+        <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" minHeight="-Infinity"
+               prefHeight="20.0" text="yourself to the risk of this information will" AnchorPane.leftAnchor="10.0"
+               AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="17.0"/>
+        <Label alignment="CENTER" layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" minHeight="-Infinity"
+               prefHeight="20.0" text="be leaked to other sourcesare " AnchorPane.leftAnchor="10.0"
+               AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="29.0"/>
+        <Label alignment="CENTER" layoutX="10.0" layoutY="42.0" maxHeight="-Infinity" minHeight="-Infinity"
+               prefHeight="20.0" text="Are you sure about that action?" AnchorPane.leftAnchor="10.0"
+               AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="42.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="Tab" layoutX="5.0" layoutY="69.0" prefHeight="105.0" prefWidth="250.0"
+                   AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="65.0">
+            <columns>
+                <TableColumn fx:id="SiteURLTab" maxWidth="102.0" minWidth="102.0" prefWidth="102.0" resizable="false"
+                             text="Site URL"/>
+                <TableColumn fx:id="DescriptionTab" maxWidth="102.0" minWidth="102.0" prefWidth="102.0"
+                             resizable="false" text="Description"/>
+                <TableColumn fx:id="SelectTab" maxWidth="30.0" minWidth="30.0" prefWidth="30.0" resizable="false"/>
+            </columns>
+        </TableView>
+        <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+            <children>
+                <Button mnemonicParsing="false" onAction="#Export" prefHeight="30.0" prefWidth="130.0"
+                        text="Export (Yes)" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="130.0"
+                        text="Cancel (No)" textAlignment="CENTER"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

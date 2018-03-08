@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="220.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/9.0.1"
+            fx:controller="Subapps.Logger.Actions.EditLogin.EditLoginController">
+    <children>
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+               text="Edit login information of:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0"
+               AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0"
+               prefWidth="65.0" text="Username:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0"/>
+        <Label layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" text="Password:" AnchorPane.leftAnchor="20.0"
+               AnchorPane.topAnchor="75.0"/>
+        <Label layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" text="Site URL:" AnchorPane.leftAnchor="20.0"
+               AnchorPane.topAnchor="105.0"/>
+        <Label layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" text="Description:" AnchorPane.leftAnchor="20.0"
+               AnchorPane.topAnchor="135.0"/>
+        <TextField fx:id="UsernameIP" prefHeight="25.0" prefWidth="175.0" promptText="Enter Username"
+                   AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="45.0"/>
+        <PasswordField fx:id="PasswordIP" layoutX="10.0" layoutY="10.0" promptText="Enter Password"
+                       AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="75.0"/>
+        <TextField fx:id="URLIP" layoutX="10.0" layoutY="10.0" promptText="Enter the URL" AnchorPane.leftAnchor="95.0"
+                   AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="105.0"/>
+        <TextField fx:id="DescriptionIP" layoutX="20.0" layoutY="20.0" promptText="Describe what info is that"
+                   AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="135.0"/>
+        <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+            <children>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#SaveChanges" prefHeight="30.0" prefWidth="130.0"
+                        text="Save Changes" HBox.hgrow="ALWAYS">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="130.0" text="Cancel"
+                        textAlignment="CENTER"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>
