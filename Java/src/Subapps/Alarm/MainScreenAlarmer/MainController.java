@@ -15,6 +15,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -51,19 +52,6 @@ public class MainController {
     @FXML
     private AnchorPane MainScreen;
 
-    @FXML
-    void Clock(MouseEvent event) {
-        try {
-            Stage stage = (Stage) MainScreen.getScene().getWindow();
-            Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/Actions/Clock/Clock.fxml"));
-            Scene scene = new Scene(parent);
-            stage.setTitle("Clock");
-            stage.setScene(scene);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private javafx.animation.Timeline Timeline;
 
     @FXML
@@ -91,6 +79,40 @@ public class MainController {
         Timeline.play();
     }
 
+    @FXML
+    void Clock(MouseEvent event) {
+        try {
+            Stage stage = (Stage) MainScreen.getScene().getWindow();
+            Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/Actions/Clock/Clock.fxml"));
+            Scene scene = new Scene(parent);
+            stage.setTitle("Clock");
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /*Alarms windows*/
+    @FXML
+    private Text PreviousAlarmTime;
+
+    @FXML
+    private TextFlow PreviousAlarmDescription;
+
+    @FXML
+    private Text Timeleft;
+
+    @FXML
+    private Text ClosestAlarmTime;
+
+    @FXML
+    private TextFlow ClosestAlarmDescription;
+
+    @FXML
+    private Text NextAlarmTime;
+
+    @FXML
+    private TextFlow NextAlarmDescription;
 
     /*Starter Method*/
     @FXML
