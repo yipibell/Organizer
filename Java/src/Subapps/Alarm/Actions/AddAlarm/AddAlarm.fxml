@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1" fx:controller="Subapps.Alarm.Actions.AddAlarm.AddAlarmController">
+    <children>
+        <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" text="Add a new Alarm:"
+               AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <Label layoutX="20.0" layoutY="20.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+               minWidth="-Infinity" prefHeight="20.0" prefWidth="65.0" text="Description:" AnchorPane.leftAnchor="20.0"
+               AnchorPane.topAnchor="120.0"/>
+
+        <TextField fx:id="Description" layoutX="10.0" layoutY="10.0" promptText="Enter a Description"
+                   AnchorPane.leftAnchor="95.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="120.0"/>
+        <CheckBox fx:id="Activation" alignment="CENTER" contentDisplay="CENTER" layoutX="36.0" layoutY="147.0"
+                  mnemonicParsing="false" text="Do you want this alarm to ring?" AnchorPane.leftAnchor="35.0"
+                  AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="150.0"/>
+        <HBox alignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="175.0">
+            <children>
+                <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                        mnemonicParsing="false" onAction="#Save" prefHeight="30.0" prefWidth="130.0" text="Save Alarm"
+                        HBox.hgrow="ALWAYS"/>
+                <Button mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="130.0" text="Cancel"
+                        textAlignment="CENTER"/>
+            </children>
+        </HBox>
+        <DatePicker fx:id="Date" editable="false" layoutX="35.0" layoutY="73.0" promptText="Chose a date of the alarm"
+                    AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0"/>
+        <ComboBox fx:id="Hours" layoutX="10.0" layoutY="48.0" prefHeight="25.0" prefWidth="94.0" promptText="Hours HH"
+                  visibleRowCount="3" AnchorPane.bottomAnchor="145.0" AnchorPane.leftAnchor="20.0"
+                  AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="50.0"/>
+        <ComboBox fx:id="Minuts" layoutX="126.0" layoutY="48.0" prefHeight="25.0" prefWidth="94.0"
+                  promptText="Minuts mm" visibleRowCount="3" AnchorPane.bottomAnchor="145.0"
+                  AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0"/>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="111.0" layoutY="52.0" text=":"
+               AnchorPane.leftAnchor="130.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="47.0">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

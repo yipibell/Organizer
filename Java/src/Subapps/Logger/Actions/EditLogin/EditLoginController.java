@@ -26,7 +26,7 @@ public class EditLoginController {
 
     @FXML
     private void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
@@ -35,7 +35,7 @@ public class EditLoginController {
         loginlist.getLoginList().remove(loginlist.getSavedLoginIndex());
         loginlist.getLoginList().add(loginlist.getSavedLoginIndex(), new Login(UsernameIP.getText(), PasswordIP.getText(), URLIP.getText(), DescriptionIP.getText()));
         loginlist.SaveLoginList();
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML

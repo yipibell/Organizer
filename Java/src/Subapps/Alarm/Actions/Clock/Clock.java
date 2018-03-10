@@ -12,7 +12,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -70,7 +69,7 @@ public class Clock {
     @FXML
     void Back(javafx.event.ActionEvent event) throws IOException {
         Stage stage = (Stage) MainScreen.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/Main.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml"));
         Scene scene = new Scene(parent);
         stage.setTitle("Alarmer");
         stage.setScene(scene);

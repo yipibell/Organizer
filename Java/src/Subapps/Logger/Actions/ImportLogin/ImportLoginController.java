@@ -24,13 +24,13 @@ public class ImportLoginController {
 
     @FXML
     private void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
     private void Save(ActionEvent event) throws IOException {
         loginlist.SaveLoginList();
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML

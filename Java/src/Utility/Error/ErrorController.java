@@ -33,10 +33,10 @@ public class ErrorController {
         String error = "";
         switch (ErrorNumber) {
             case 0:
-                error = "Error Number #00, You Must check at lest one login to export";
+                error = "Error Number #00, You must check at lest one login to export";
                 break;
             case 1:
-                error = "Error Number #01, You Must Select a location";
+                error = "Error Number #01, You must select a location";
                 break;
             case 2:
                 error = "Error Number #02, You must enterd a Username";
@@ -45,7 +45,13 @@ public class ErrorController {
                 error = "Error Number #03, You must enterd a Password";
                 break;
             case 4:
-                error = "Error Number #04, You must select a Alarm to use that option" + "/n if there are no lines you can choose add a login";
+                error = "Error Number #04, You must select something to use that option";
+                break;
+            case 5:
+                error = "Error Number #05, You chose Hour, Minute, and a Date";
+                break;
+            case 6:
+                error = "Error Number #06, You can't set an alarm for a past time";
                 break;
             default:
                 error = "Error not specified";

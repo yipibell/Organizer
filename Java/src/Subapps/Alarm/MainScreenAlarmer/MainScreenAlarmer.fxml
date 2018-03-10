@@ -5,7 +5,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-<AnchorPane fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Subapps.Alarm.MainScreenAlarmer.MainController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1"
+            fx:controller="Subapps.Alarm.MainScreenAlarmer.MainScreenAlarmerController">
     <children>
         <JFXHamburger fx:id="MenuButton" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0" />
       <Label alignment="CENTER" layoutX="136.0" layoutY="17.0" text="Alarmer" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="10.0">

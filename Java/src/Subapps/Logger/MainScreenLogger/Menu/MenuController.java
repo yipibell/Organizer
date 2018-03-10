@@ -15,48 +15,39 @@ public class MenuController {
     private VBox Menu;
 
     @FXML
-    public void Close(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/MainScreen/Main.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("About");
-        stage.setScene(scene);
+    public void Close(ActionEvent event) {
+        SwichToScreen("/MainScreen/Main.fxml", "Main");
     }
 
     @FXML
-    void Addanewlogin(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Actions/AddLogin/AddLogin.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Add new Alarm id");
-        stage.setScene(scene);
+    void Addanewlogin(ActionEvent event) {
+        SwichToScreen("/Subapps/Logger/Actions/AddLogin/AddLogin.fxml", "Add new Alarm id");
     }
 
     @FXML
-    void ImportLogin(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Actions/ImportLogin/ImportLogin.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Import Logins from file");
-        stage.setScene(scene);
+    void ImportLogin(ActionEvent event) {
+        SwichToScreen("/Subapps/Logger/Actions/ImportLogin/ImportLogin.fxml", "Import Logins from file");
     }
 
     @FXML
-    void ExportLoginlist(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/Actions/ExportLoginList/ExportLoginList.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Export Alarm list");
-        stage.setScene(scene);
+    void ExportLoginlist(ActionEvent event) {
+        SwichToScreen("/Subapps/Logger/Actions/ExportLoginList/ExportLoginList.fxml", "Export Alarm list");
     }
 
     @FXML
-    void About(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/About/About.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("About");
-        stage.setScene(scene);
+    void About(ActionEvent event) {
+        SwichToScreen("/About/About.fxml", "About");
     }
 
+    private void SwichToScreen(String Path, String ScreenName) {
+        try {
+            Stage stage = (Stage) Menu.getScene().getWindow();
+            Parent parent = FXMLLoader.load(getClass().getResource(Path));
+            Scene scene = new Scene(parent);
+            stage.setTitle(ScreenName);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

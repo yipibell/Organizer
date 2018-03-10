@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="MainScreen" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0"
+            xmlns="http://javafx.com/javafx/9.0.1"
+            fx:controller="Subapps.Alarm.Actions.ShowAllAlarms.ShowAllAlarmsController">
+    <children>
+        <Label alignment="CENTER" layoutX="76.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0"
+               prefWidth="134.0" text="AlarmList" AnchorPane.leftAnchor="76.0" AnchorPane.rightAnchor="50.0"
+               AnchorPane.topAnchor="10.0">
+            <font>
+                <Font size="18.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="Tab" layoutX="5.0" layoutY="69.0" prefHeight="105.0" prefWidth="250.0"
+                   AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0"
+                   AnchorPane.topAnchor="65.0">
+            <columns>
+                <TableColumn fx:id="AlarmTimeTab" maxWidth="102.0" minWidth="102.0" prefWidth="102.0" resizable="false"
+                             text="Alarm Time"/>
+                <TableColumn fx:id="DescriptionTab" maxWidth="102.0" minWidth="102.0" prefWidth="102.0"
+                             resizable="false" text="Description"/>
+                <TableColumn fx:id="ActivationTab" maxWidth="30.0" minWidth="30.0" onEditStart="#Turn" prefWidth="30.0"
+                             resizable="false" text="on?"/>
+            </columns>
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#a" text="Get info"/>
+                        <MenuItem mnemonicParsing="false" onAction="#a" text="Edit"/>
+                        <MenuItem mnemonicParsing="false" onAction="#a" text="Delete"/>
+                        <MenuItem mnemonicParsing="false" onAction="#a" text="Copy"/>
+                        <MenuItem mnemonicParsing="false" onAction="#a" text="Export"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TableView>
+        <JFXHamburger fx:id="MenuButton" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0"/>
+        <JFXDrawer fx:id="MenuDrawer" defaultDrawerSize="150.0" layoutX="10.0" layoutY="10.0"
+                   AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        <Button onAction="#Back" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+                mnemonicParsing="false" prefHeight="30.0" prefWidth="45.0" text="Back" AnchorPane.leftAnchor="15.0"
+                AnchorPane.topAnchor="10.0"/>
+    </children>
+</AnchorPane>

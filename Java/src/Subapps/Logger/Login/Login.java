@@ -52,6 +52,7 @@ public class Login {
     public CheckBox getCheck() {
         return Check;
     }
+
     public void setCheck(CheckBox check) {
         Check = check;
     }

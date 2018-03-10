@@ -44,7 +44,7 @@ public class ExportLoginController {
 
     @FXML
     void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
@@ -64,9 +64,9 @@ public class ExportLoginController {
             saveLogin += loginlist.LoginToString(login);
             saveLogin.replace(" ", "_");
             saveLogin.replace("\\n", "!@");
-            byte[] savelogin = encryption.Encryption(saveLogin, SecretKey);
+            byte[] savelogin = Encryption.Encryption(saveLogin, SecretKey);
             fe.SavebitFile(savelogin, SaveFilelocation);
-            swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+            swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
         }
     }
 

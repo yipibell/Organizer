@@ -21,30 +21,29 @@ public class MenuController {
     }
 
     @FXML
-    void Logger(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Logger/MainScreenLogger/Main.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Add new Alarm id");
-        stage.setScene(scene);
+    void Logger(ActionEvent event) {
+        SwichToScreen("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", "Logger");
     }
 
     @FXML
-    void About(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/About/About.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("About");
-        stage.setScene(scene);
+    void About(ActionEvent event) {
+        SwichToScreen("/About/About.fxml", "About");
     }
 
     @FXML
-    void Alarmer(ActionEvent event) throws IOException {
-        Stage stage = (Stage) Menu.getScene().getWindow();
-        Parent parent = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/Main.fxml"));
-        Scene scene = new Scene(parent);
-        stage.setTitle("Add new Alarm id");
-        stage.setScene(scene);
+    void Alarmer(ActionEvent event) {
+        SwichToScreen("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", "Add new Alarm id");
     }
 
+    private void SwichToScreen(String Path, String ScreenName) {
+        try {
+            Stage stage = (Stage) Menu.getScene().getWindow();
+            Parent parent = FXMLLoader.load(getClass().getResource(Path));
+            Scene scene = new Scene(parent);
+            stage.setTitle(ScreenName);
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package MainScreen;
+package Subapps.Alarm.Actions.ShowAllAlarms;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +14,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
-        primaryStage.setTitle("Main");
+        Parent root = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/Actions/ShowAllAlarms/ShowAllAlarms.fxml"));
+        primaryStage.setTitle("Alarmer");
         primaryStage.setScene(new Scene(root, 260, 220));
         primaryStage.setResizable(false);
         primaryStage.show();

@@ -38,7 +38,7 @@ public class ShowLoginController {
 
     @FXML
     void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML

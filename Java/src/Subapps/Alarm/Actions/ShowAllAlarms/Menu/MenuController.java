@@ -1,4 +1,4 @@
-package Subapps.Alarm.MainScreenAlarmer.Menu;
+package Subapps.Alarm.Actions.ShowAllAlarms.Menu;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

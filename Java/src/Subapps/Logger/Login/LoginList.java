@@ -13,10 +13,10 @@ public class LoginList {
     private CommonCommands CC = new CommonCommands();
     private FileEditing fe = new FileEditing();
     private Encryption encryption;
-    private String SaveFilelocation = "src/Login/SavedLoginList.loginfo";
+    private String SaveFilelocation = "Java/src/Subapps/Logger/Login/SavedLoginList.loginfo";
     private List<Login> LoginList = new ArrayList();
     /*Selected login Save & Load*/
-    private String SelectedSaveFilelocation = "src/Login/OperetedLogin.loginfo";
+    private String SelectedSaveFilelocation = "Java/src/Subapps/Alarm/Alarm/SavedAlarmList.Alarm";
     private int SavedLoginIndex;
 
     public LoginList() {
@@ -33,14 +33,14 @@ public class LoginList {
             saveLogin += LoginToString(Login);
         }
         saveLogin.replace(" ", "_");
-        byte[] savelogin = encryption.Encryption(saveLogin, SecretKey);
+        byte[] savelogin = Encryption.Encryption(saveLogin, SecretKey);
         fe.SavebitFile(savelogin, SaveFilelocation);
     }
 
     public void LoadLoginList() {
         String SecretKey = "Login";
         byte[] Decrypt = fe.LoadbitFile(SaveFilelocation);
-        Decrypt = encryption.Decryption(Decrypt, SecretKey);
+        Decrypt = Encryption.Decryption(Decrypt, SecretKey);
         String sDecrypt = new String(Decrypt);
         String[] Decrypted = sDecrypt.replace("!@", "\\n").split("\\n");
         for (String decrypted : Decrypted) {
@@ -49,17 +49,16 @@ public class LoginList {
             if (arg[3].contains("_")) arg[3].replace("_", " ");
             AddLogin(new Login(arg[0], arg[1], arg[2], arg[3]));
         }
-        ;
     }
 
     public void AddLogin(Login Login) {
         this.LoginList.add(Login);
     }
 
-    public void ImportLoginList(String path) throws Exception {
+    public void ImportLoginList(String path) {
         String SecretKey = "Login";
         byte[] Decrypt = fe.LoadbitFile(path);
-        Decrypt = encryption.Decryption(Decrypt, SecretKey);
+        Decrypt = Encryption.Decryption(Decrypt, SecretKey);
         String sDecrypt = new String(Decrypt);
         String[] Decrypted = sDecrypt.replace("!@", "\\n").split("\\n");
         for (String decrypted : Decrypted) {
@@ -68,7 +67,6 @@ public class LoginList {
             if (arg[3].contains("_")) arg[3].replace("_", " ");
             AddLogin(new Login(arg[0], arg[1], arg[2], arg[3]));
         }
-        ;
     }
 
     public int getSavedLoginIndex() {
@@ -80,14 +78,14 @@ public class LoginList {
         saveLogin += index + "|";
         saveLogin += LoginToString(login);
         saveLogin.replace(" ", "_");
-        byte[] savelogin = encryption.Encryption(saveLogin, SecretKey);
+        byte[] savelogin = Encryption.Encryption(saveLogin, SecretKey);
         fe.SavebitFile(savelogin, SelectedSaveFilelocation);
     }
 
     public Login LoadLogin() {
         Login login = (new Login("error", "error", "error", "error"));
         byte[] Decrypt = fe.LoadbitFile(SelectedSaveFilelocation);
-        Decrypt = encryption.Decryption(Decrypt, SecretKey);
+        Decrypt = Encryption.Decryption(Decrypt, SecretKey);
         String sDecrypt = new String(Decrypt);
         String[] Decrypted = sDecrypt.replace("!@", "\\n").split("\\n");
         for (String decrypted : Decrypted) {

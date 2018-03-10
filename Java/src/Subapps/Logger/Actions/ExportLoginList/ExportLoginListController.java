@@ -32,11 +32,13 @@ public class ExportLoginListController {
     private String ErrorFilelocation = "Java/src/Utility/Error/Error.txt";
     private OpenNewWindow open = new OpenNewWindow();
 
+    /*Tab*/
     @FXML
     private AnchorPane EpxortLoginPane;
 
     @FXML
     private TableView<Login> Tab;
+
     @FXML
     private TableColumn<Login, String> SiteURLTab;
 
@@ -45,12 +47,6 @@ public class ExportLoginListController {
 
     @FXML
     private TableColumn SelectTab = new TableColumn();
-
-    @FXML
-    public void initialize() {
-        ColumnSet();
-        loadData();
-    }
 
     private void ColumnSet() {
         SiteURLTab.setCellValueFactory(new PropertyValueFactory<>("SiteURL"));
@@ -67,9 +63,10 @@ public class ExportLoginListController {
         Tab.setItems(LoginObservableList);
     }
 
+    /*Actions*/
     @FXML
     private void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
@@ -96,9 +93,9 @@ public class ExportLoginListController {
                 saveLogin += LoginListToString(listofselected);
                 saveLogin.replace(" ", "_");
                 saveLogin.replace("\\n", "!@");
-                byte[] savelogin = encryption.Encryption(saveLogin, SecretKey);
+                byte[] savelogin = Encryption.Encryption(saveLogin, SecretKey);
                 fe.SavebitFile(savelogin, SaveFilelocation);
-                swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+                swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
             }
         } else {
             fe.export(ErrorFilelocation, "0");
@@ -112,7 +109,13 @@ public class ExportLoginListController {
             if (login.getDescription().equals("")) login.setDescription("no_description_enterd");
             listofloginsString += login.getUserName() + "|" + login.getPassWord() + "|" + login.getSiteURL() + "|" + login.getDescription() + "\n";
         }
-        ;
         return listofloginsString;
+    }
+
+    /*starter*/
+    @FXML
+    public void initialize() {
+        ColumnSet();
+        loadData();
     }
 }

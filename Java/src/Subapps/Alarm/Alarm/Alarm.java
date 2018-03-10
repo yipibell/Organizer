@@ -1,21 +1,34 @@
 package Subapps.Alarm.Alarm;
 
+import javafx.scene.control.CheckBox;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Alarm {
     /*Constructor*/
     private Boolean Activation;
     private LocalDateTime AlarmTime;
     private String Description;
+    private String AlarmTimeAsString;
+
+    private CheckBox Check;
+
 
     public Alarm(Boolean activation, LocalDateTime alarmTime, String description) {
-        Activation = activation;
-        AlarmTime = alarmTime;
-        Description = description;
+        this.Activation = activation;
+        this.AlarmTime = alarmTime;
+        this.Description = description;
+        this.AlarmTimeAsString = AlarmTime.format(DateTimeFormatter.ofPattern("HH:mm dd/MM/YYYY"));
+
+        this.Check = new CheckBox();
+        if (Activation) {
+            this.Check.setSelected(true);
+        }
     }
 
-    /*Getters & Setters*/
 
+    /*Getters & Setters*/
     public Boolean getActivation() {
         return Activation;
     }
@@ -36,11 +49,23 @@ public class Alarm {
         return AlarmTime;
     }
 
+    public String getAlarmTimeAsString() {
+        return AlarmTimeAsString;
+    }
+
     public void setAlarmTime(LocalDateTime alarmTime) {
         AlarmTime = alarmTime;
     }
 
     public void setAlarmTime(int hour, int minutes, int day, int month, int year) {
         AlarmTime = LocalDateTime.of(year, month, day, hour, minutes);
+    }
+
+    public CheckBox getCheck() {
+        return Check;
+    }
+
+    private void ActivationSwich() {
+        Activation = !Activation;
     }
 }

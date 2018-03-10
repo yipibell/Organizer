@@ -29,7 +29,7 @@ public class DeleteLoginController {
 
     @FXML
     void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
@@ -37,7 +37,7 @@ public class DeleteLoginController {
         loginlist.LoadLoginList();
         loginlist.getLoginList().remove(loginlist.getSavedLoginIndex());
         loginlist.SaveLoginList();
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML

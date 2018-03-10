@@ -24,7 +24,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainController {
+public class MainScreenLoggerController {
     /*Menu bar*/
     @FXML
     public JFXHamburger MenuButton;
@@ -88,7 +88,6 @@ public class MainController {
         } else {
             valid = true;
         }
-        ;
         return valid;
     }
 

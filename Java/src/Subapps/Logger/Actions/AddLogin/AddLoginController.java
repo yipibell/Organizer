@@ -30,7 +30,7 @@ public class AddLoginController {
 
     @FXML
     private void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+        swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
     }
 
     @FXML
@@ -40,7 +40,7 @@ public class AddLoginController {
             if (!PasswordIP.getText().equals("")) {
                 loginlist.AddLogin(new Login(UsernameIP.getText(), PasswordIP.getText(), URLIP.getText(), DescriptionIP.getText()));
                 loginlist.SaveLoginList();
-                swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/Main.fxml", event);
+                swich.SwichNewWindow("/Subapps/Logger/MainScreenLogger/MainScreenLogger.fxml", event);
             } else {
                 fe.export(ErrorFilelocation, "3");
                 open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
