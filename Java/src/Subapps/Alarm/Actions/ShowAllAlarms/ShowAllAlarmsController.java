@@ -5,6 +5,7 @@ import Subapps.Alarm.Alarm.Alarm;
 import Subapps.Alarm.Alarm.AlarmList;
 import Utility.FileEditing;
 import Utility.OpenNewWindow;
+import Utility.SwichWindow;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXHamburger;
 import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition;
@@ -13,15 +14,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -29,8 +27,7 @@ public class ShowAllAlarmsController {
     /*Menu bar*/
     @FXML
     public JFXHamburger MenuButton;
-    @FXML
-    private AnchorPane MainScreen;
+
     /*Tab*/
     private ObservableList<Alarm> AlarmObservableList = FXCollections.observableArrayList();
     private AlarmList alarmList = new AlarmList();
@@ -42,12 +39,17 @@ public class ShowAllAlarmsController {
     private TableColumn<Alarm, String> DescriptionTab;
     @FXML
     private TableColumn ActivationTab = new TableColumn();
-    @FXML
-    private JFXDrawer MenuDrawer;
+
     /*Actions*/
     private FileEditing fe = new FileEditing();
     private String ErrorFilelocation = "java/src/Utility/Error/Error.txt";
     private OpenNewWindow open = new OpenNewWindow();
+    private SwichWindow swich = new SwichWindow();
+
+    @FXML
+    private JFXDrawer MenuDrawer;
+    @FXML
+    private AnchorPane MainScreen;
 
     private void ColumnSet() {
         AlarmTimeTab.setCellValueFactory(new PropertyValueFactory<>("AlarmTimeAsString"));
@@ -63,6 +65,36 @@ public class ShowAllAlarmsController {
             AlarmObservableList.add(log);
         }
         Tab.setItems(AlarmObservableList);
+    }
+
+    /*starter*/
+
+    private boolean SelectChecker(Alarm obj) {
+        boolean valid = false;
+        Alarm alarm = obj;
+        if (obj == null) {
+            fe.export(ErrorFilelocation, "4");
+            open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
+            valid = false;
+        } else {
+            valid = true;
+        }
+        return valid;
+    }
+
+    public void a(ActionEvent actionEvent) {
+    }
+
+    public void Back(ActionEvent actionEvent) throws IOException {
+        swich.SwichNewWindow("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", actionEvent);
+    }
+
+    @FXML
+    public void initialize() {
+        ColumnSet();
+        loadData();
+        Menu();
+        MenuButtonControll();
     }
 
     private void MenuButtonControll() {
@@ -81,56 +113,6 @@ public class ShowAllAlarmsController {
         try {
             VBox box = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/Actions/ShowAllAlarms/Menu/Menu.fxml"));
             MenuDrawer.setSidePane(box);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /*starter*/
-    @FXML
-    public void initialize() {
-        ColumnSet();
-        loadData();
-        Menu();
-        MenuButtonControll();
-    }
-
-    @FXML
-    void Turn(ActionEvent event) {
-        System.out.println("1");
-        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
-            alarmList.ChangeActivation(Tab.getSelectionModel().getSelectedItem());
-            alarmList.SaveAlarmList();
-        }
-    }
-
-    private boolean SelectChecker(Alarm obj) {
-        boolean valid = false;
-        Alarm alarm = obj;
-        if (obj == null) {
-            fe.export(ErrorFilelocation, "4");
-            open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
-            valid = false;
-        } else {
-            valid = true;
-        }
-        return valid;
-    }
-
-    public void a(ActionEvent actionEvent) {
-    }
-
-    public void Back(ActionEvent actionEvent) {
-        SwichToScreen("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", "Alarmer");
-    }
-
-    private void SwichToScreen(String Path, String ScreenName) {
-        try {
-            Stage stage = (Stage) MainScreen.getScene().getWindow();
-            Parent parent = FXMLLoader.load(getClass().getResource(Path));
-            Scene scene = new Scene(parent);
-            stage.setTitle(ScreenName);
-            stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -29,6 +29,31 @@ public class MainScreenAlarmerController {
 
     @FXML
     private JFXDrawer MenuDrawer;
+    /*Clock and timer*/
+    @FXML
+    private AnchorPane MainScreen;
+    private javafx.animation.Timeline Timeline;
+    @FXML
+    private Text Time;
+    @FXML
+    private Text Date;
+    @FXML
+    private Text Day;
+    /*Alarms windows*/
+    @FXML
+    private Text PreviousAlarmTime;
+    @FXML
+    private TextFlow PreviousAlarmDescription;
+    @FXML
+    private Text Timeleft;
+    @FXML
+    private Text ClosestAlarmTime;
+    @FXML
+    private TextFlow ClosestAlarmDescription;
+    @FXML
+    private Text NextAlarmTime;
+    @FXML
+    private TextFlow NextAlarmDescription;
 
     private void MenuButtonControll() {
         HamburgerBackArrowBasicTransition transition = new HamburgerBackArrowBasicTransition(MenuButton);
@@ -46,21 +71,6 @@ public class MainScreenAlarmerController {
         VBox box = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/Menu/Menu.fxml"));
         MenuDrawer.setSidePane(box);
     }
-
-    /*Clock and timer*/
-    @FXML
-    private AnchorPane MainScreen;
-
-    private javafx.animation.Timeline Timeline;
-
-    @FXML
-    private Text Time;
-
-    @FXML
-    private Text Date;
-
-    @FXML
-    private Text Day;
 
     @FXML
     public void SmallClock() {
@@ -90,28 +100,6 @@ public class MainScreenAlarmerController {
             e.printStackTrace();
         }
     }
-
-    /*Alarms windows*/
-    @FXML
-    private Text PreviousAlarmTime;
-
-    @FXML
-    private TextFlow PreviousAlarmDescription;
-
-    @FXML
-    private Text Timeleft;
-
-    @FXML
-    private Text ClosestAlarmTime;
-
-    @FXML
-    private TextFlow ClosestAlarmDescription;
-
-    @FXML
-    private Text NextAlarmTime;
-
-    @FXML
-    private TextFlow NextAlarmDescription;
 
     /*Starter Method*/
     @FXML

@@ -24,6 +24,7 @@ public class Login {
     public String getUserName() {
         return UserName;
     }
+
     public void setUserName(String userName) {
         UserName = userName;
     }
@@ -31,6 +32,7 @@ public class Login {
     public String getPassWord() {
         return PassWord;
     }
+
     public void setPassWord(String passWord) {
         PassWord = passWord;
     }
@@ -38,6 +40,7 @@ public class Login {
     public String getSiteURL() {
         return SiteURL;
     }
+
     public void setSiteURL(String siteURL) {
         SiteURL = siteURL;
     }
@@ -45,6 +48,7 @@ public class Login {
     public String getDescription() {
         return Description;
     }
+
     public void setDescription(String description) {
         Description = description;
     }

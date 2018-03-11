@@ -49,12 +49,12 @@ public class Alarm {
         return AlarmTime;
     }
 
-    public String getAlarmTimeAsString() {
-        return AlarmTimeAsString;
-    }
-
     public void setAlarmTime(LocalDateTime alarmTime) {
         AlarmTime = alarmTime;
+    }
+
+    public String getAlarmTimeAsString() {
+        return AlarmTimeAsString;
     }
 
     public void setAlarmTime(int hour, int minutes, int day, int month, int year) {
