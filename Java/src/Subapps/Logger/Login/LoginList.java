@@ -16,7 +16,7 @@ public class LoginList {
     private String SaveFilelocation = "Java/src/Subapps/Logger/Login/SavedLoginList.loginfo";
     private List<Login> LoginList = new ArrayList();
     /*Selected login Save & Load*/
-    private String SelectedSaveFilelocation = "Java/src/Subapps/Alarm/Alarm/SavedAlarmList.Alarm";
+    private String SelectedSaveFilelocation = "Java/src/Subapps/Logger/Login/OperetedLogin.loginfo";
     private int SavedLoginIndex;
 
     public LoginList() {

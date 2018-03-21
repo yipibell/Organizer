@@ -1,4 +1,4 @@
-package Subapps.Alarm.Actions.AddAlarm;
+package Subapps.Alarm.Actions.EditAlarm;
 
 
 import Subapps.Alarm.Alarm.Alarm;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-public class AddAlarmController {
+public class EditAlarmController {
 
     @FXML
     private TextField Description;
@@ -42,10 +42,11 @@ public class AddAlarmController {
     private String ErrorFilelocation = "java/src/Utility/Error/Error.txt";
     private OpenNewWindow open = new OpenNewWindow();
     private AlarmList alarmlist = new AlarmList();
+    private Alarm alarm;
 
     @FXML
     private void Cancel(ActionEvent event) throws IOException {
-        swich.SwichNewWindow("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", event);
+        swich.SwichNewWindow("/Subapps/Alarm/Actions/ShowAllAlarms/ShowAllAlarms.fxml", event);
     }
 
     @FXML
@@ -60,9 +61,10 @@ public class AddAlarmController {
                 fe.export(ErrorFilelocation, "6");
                 open.LoadNewWindow(("/Utility/Error/Error.fxml"), "Error", null);
             } else {
+                alarmlist.getAlarmList().remove(alarmlist.getSelectedIndex());
                 alarmlist.AddAlarm(new Alarm(Activation.isSelected(), AlarmTime, Description.getText()));
                 alarmlist.SaveAlarmList();
-                swich.SwichNewWindow("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", event);
+                swich.SwichNewWindow("/Subapps/Alarm/Actions/ShowAllAlarms/ShowAllAlarms.fxml", event);
             }
         }
     }
@@ -70,7 +72,17 @@ public class AddAlarmController {
     /*Starter Method*/
     @FXML
     public void initialize() {
+        loadalarm();
         Setter();
+    }
+
+    private void loadalarm() {
+        alarm = alarmlist.LoadAlarm();
+        Date.setValue(alarm.getAlarmTime().toLocalDate());
+        Hours.setValue("" + alarm.getAlarmTime().getHour());
+        Minuts.setValue("" + alarm.getAlarmTime().getMinute());
+        Activation.setSelected(alarm.getActivation());
+        Description.setText(alarm.getDescription());
     }
 
     private void Setter() {
@@ -158,5 +170,7 @@ public class AddAlarmController {
         Minuts.getItems().add("57");
         Minuts.getItems().add("58");
         Minuts.getItems().add("59");
+        Hours.getItems().set(alarm.getAlarmTime().getHour(), "" + alarm.getAlarmTime().getHour());
+        Minuts.getItems().set(alarm.getAlarmTime().getMinute(), "" + alarm.getAlarmTime().getMinute());
     }
 }

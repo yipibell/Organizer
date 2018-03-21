@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -67,6 +68,38 @@ public class ShowAllAlarmsController {
         Tab.setItems(AlarmObservableList);
     }
 
+
+    public void a(ActionEvent actionEvent) {
+    }
+
+    public void Back(ActionEvent actionEvent) throws IOException {
+        swich.SwichNewWindow("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", actionEvent);
+    }
+
+    public void ShowAlarm(ActionEvent actionEvent) throws IOException {
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            alarmList.SaveAlarm(Tab.getSelectionModel().getSelectedItem(), alarmList.getAlarmList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Alarm/Actions/ShowAlarm/ShowAlarm.fxml", stage);
+        }
+    }
+
+    public void EditAlarm(ActionEvent actionEvent) throws IOException {
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            alarmList.SaveAlarm(Tab.getSelectionModel().getSelectedItem(), alarmList.getAlarmList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Alarm/Actions/EditAlarm/EditAlarm.fxml", stage);
+        }
+    }
+
+    public void DeleteAlarm(ActionEvent actionEvent) throws IOException {
+        if (SelectChecker(Tab.getSelectionModel().getSelectedItem())) {
+            alarmList.SaveAlarm(Tab.getSelectionModel().getSelectedItem(), alarmList.getAlarmList().indexOf(Tab.getSelectionModel().getSelectedItem()));
+            Stage stage = (Stage) (MainScreen.getScene().getWindow());
+            swich.SwichNewWindow("/Subapps/Alarm/Actions/DeleteAlarm/DeleteAlarm.fxml", stage);
+        }
+    }
+
     /*starter*/
 
     private boolean SelectChecker(Alarm obj) {
@@ -80,13 +113,6 @@ public class ShowAllAlarmsController {
             valid = true;
         }
         return valid;
-    }
-
-    public void a(ActionEvent actionEvent) {
-    }
-
-    public void Back(ActionEvent actionEvent) throws IOException {
-        swich.SwichNewWindow("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml", actionEvent);
     }
 
     @FXML

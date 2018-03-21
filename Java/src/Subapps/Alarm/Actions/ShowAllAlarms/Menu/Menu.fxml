@@ -9,8 +9,8 @@
                 mnemonicParsing="false" onAction="#AddAlarm" prefHeight="44.0" prefWidth="150.0"
                 text="Add a new Alarm"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-                mnemonicParsing="false" onAction="#ShowAllAlarms" prefHeight="44.0" prefWidth="150.0"
-                text="Show all Alarms"/>
+                mnemonicParsing="false" onAction="#a" prefHeight="44.0" prefWidth="150.0"
+                text="a"/>
         <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
                 mnemonicParsing="false" onAction="#a" prefHeight="44.0" prefWidth="150.0"
                 text="a"/>

@@ -4,8 +4,10 @@ import javafx.scene.control.CheckBox;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Comparator;
 
-public class Alarm {
+public class Alarm implements Comparable<Alarm> {
+
     /*Constructor*/
     private Boolean Activation;
     private LocalDateTime AlarmTime;
@@ -15,7 +17,17 @@ public class Alarm {
     private CheckBox Check;
 
 
+    public static Comparator<Alarm> AlarmDateComparator = new Comparator<Alarm>() {
+        public int compare(Alarm a, Alarm b) {
+            LocalDateTime a1 = a.getAlarmTime();
+            LocalDateTime b1 = b.getAlarmTime();
+            return a1.compareTo(b1);
+        }
+
+    };
+
     public Alarm(Boolean activation, LocalDateTime alarmTime, String description) {
+        super();
         this.Activation = activation;
         this.AlarmTime = alarmTime;
         this.Description = description;
@@ -27,6 +39,16 @@ public class Alarm {
         }
     }
 
+    @Override
+    public int compareTo(Alarm o) {
+        if (this.AlarmTime.isBefore(o.getAlarmTime())) {
+            return 1;
+        } else if (this.AlarmTime.equals(o.getAlarmTime())) {
+            return 0;
+        } else {
+            return -1;
+        }
+    }
 
     /*Getters & Setters*/
     public Boolean getActivation() {
