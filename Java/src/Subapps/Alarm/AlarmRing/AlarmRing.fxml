@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
             minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/9.0.1"
-            fx:controller="MainScreen.MainController">
+            fx:controller="Subapps.Alarm.AlarmRing.AlarmRingController">
     <children>
         <Label alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" text="Alarm!!!"
                AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
@@ -20,8 +20,12 @@
         <Label alignment="CENTER" text="The Description to the alarm was:" AnchorPane.leftAnchor="10.0"
                AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="85.0"/>
         <TextArea fx:id="Discription" layoutX="10.0" layoutY="85.0" prefHeight="80.0" prefWidth="240.0"/>
-        <Button layoutX="11.0" layoutY="181.0" mnemonicParsing="false" text="Stop Alarm" AnchorPane.bottomAnchor="10.0"
-                AnchorPane.leftAnchor="10.0"/>
+        <Button layoutX="11.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" mnemonicParsing="false" onAction="#Stop" prefHeight="25.0" prefWidth="50.0"
+                text="Stop" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"/>
         <AnchorPane layoutX="91.0" layoutY="171.0" prefHeight="45.0" prefWidth="165.0"/>
+        <Button layoutX="21.0" layoutY="191.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                minWidth="-Infinity" mnemonicParsing="false" onAction="#Puse" prefHeight="25.0" prefWidth="50.0"
+                text="Puse" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0"/>
     </children>
 </AnchorPane>

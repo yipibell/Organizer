@@ -13,6 +13,7 @@ public class Alarm implements Comparable<Alarm> {
     private LocalDateTime AlarmTime;
     private String Description;
     private String AlarmTimeAsString;
+    private AlarmList alarmList = new AlarmList();
 
     private CheckBox Check;
 
@@ -89,5 +90,14 @@ public class Alarm implements Comparable<Alarm> {
 
     private void ActivationSwich() {
         Activation = !Activation;
+    }
+
+    /*Actions*/
+    public void report() {
+        alarmList.LoadAlarmList();
+        alarmList.getAlarmList().remove(new Alarm(Activation, AlarmTime, Description));
+        alarmList.getAlarmList().add(new Alarm(!Activation, AlarmTime, Description));
+        alarmList.SaveAlarmList();
+        System.out.println("Alarm went off");
     }
 }

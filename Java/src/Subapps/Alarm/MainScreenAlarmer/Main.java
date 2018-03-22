@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/Main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/Subapps/Alarm/MainScreenAlarmer/MainScreenAlarmer.fxml"));
         primaryStage.setTitle("Logger");
         primaryStage.setScene(new Scene(root, 260, 220));
         primaryStage.setResizable(false);

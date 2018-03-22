@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class MainController {
+
     /*Menu bar*/
     @FXML
     public JFXHamburger MenuButton;
@@ -30,14 +31,19 @@ public class MainController {
         });
     }
 
-    private void Menu() throws IOException {
-        VBox box = FXMLLoader.load(getClass().getResource("/MainScreen/Menu/Menu.fxml"));
+    private void Menu() {
+        VBox box = null;
+        try {
+            box = FXMLLoader.load(getClass().getResource("/MainScreen/Menu/Menu.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         MenuDrawer.setSidePane(box);
     }
 
     /*Starter Method*/
     @FXML
-    public void initialize() throws IOException {
+    public void initialize() {
         Menu();
         MenuButtonControll();
     }

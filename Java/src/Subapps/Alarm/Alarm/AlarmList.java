@@ -22,6 +22,8 @@ public class AlarmList {
     /*Alarm list*/
     private List<Alarm> AlarmList = new ArrayList();
 
+    private Alarm NextAlarm;
+
     public AlarmList() {
     }
 
@@ -40,7 +42,7 @@ public class AlarmList {
     }
 
     private String AlarmToString(Alarm alarm) {
-        if (alarm.getDescription().equals("")) alarm.setDescription("no_description_enterd");
+        if (alarm.getDescription().equals("")) alarm.setDescription("no_description");
         String AsString =
                 alarm.getActivation() + "|" +
                         alarm.getAlarmTime().format(DateTimeFormatter.ofPattern("YYYY:MM:dd:HH:mm")) + "|" +
@@ -85,7 +87,34 @@ public class AlarmList {
         return AlarmList;
     }
 
+    public void CheckNextAlarm() {
+        LocalDateTime timenow = LocalDateTime.now();
+        Boolean Checker = false;
+        do {
+            int index = 0;
+            if (index <= AlarmList.size() - 1) {
+                if (timenow.isAfter(AlarmList.get(index).getAlarmTime())) {
+                    index++;
+                } else {
+                    if (AlarmList.get(index).getActivation()) {
+                        index++;
+                    } else {
+                        NextAlarm = AlarmList.get(index);
+                        Checker = true;
+                    }
+                }
+            } else {
+                Checker = true;
+            }
+        } while (Checker);
+    }
+
+    public Alarm getNextAlarm() {
+        CheckNextAlarm();
+        return NextAlarm;
+    }
     /*selected alarm*/
+
     public void SaveAlarm(Alarm alarm, int index) {
         String saveAlarm = "";
         saveAlarm += index + "|";
