@@ -20,6 +20,7 @@ public class Main extends Application {
 
         AlarmRing ring = new AlarmRing();
         ring.start();
+        primaryStage.setOnCloseRequest(e -> ring.stop());
 
         primaryStage.setTitle("Main");
         primaryStage.setScene(new Scene(root, 260, 220));

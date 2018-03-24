@@ -1,5 +1,6 @@
 package Subapps.Alarm.Alarm;
 
+import Utility.OpenNewWindow;
 import javafx.scene.control.CheckBox;
 
 import java.time.LocalDateTime;
@@ -93,11 +94,9 @@ public class Alarm implements Comparable<Alarm> {
     }
 
     /*Actions*/
+    private OpenNewWindow open = new OpenNewWindow();
     public void report() {
-        alarmList.LoadAlarmList();
-        alarmList.getAlarmList().remove(new Alarm(Activation, AlarmTime, Description));
-        alarmList.getAlarmList().add(new Alarm(!Activation, AlarmTime, Description));
-        alarmList.SaveAlarmList();
-        System.out.println("Alarm went off");
+        alarmList.SaveAlarm(new Alarm(this.Activation, this.AlarmTime, this.Description), 0);
+        open.LoadNewWindow("/Subapps/Alarm/AlarmRing/AlarmRing.fxml", "Alarm!!!", null);
     }
 }

@@ -1,5 +1,6 @@
 package Subapps.Alarm.Actions.ShowAllAlarms;
 
+import Subapps.Alarm.AlarmRing.AlarmRing;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +12,8 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    private AlarmRing ring = new AlarmRing();
 
     @Override
     public void start(Stage primaryStage) throws Exception {

@@ -45,16 +45,12 @@ https://github.com/yipibell/FXTutorials.git
     }
 
     private void tick() {
-        alarmList.LoadAlarmList();
-
         Platform.runLater(() -> {
-            alarmList.getAlarmList().stream()
+            alarmList.getAlarmRingList().stream()
                     .filter(alarm -> LocalDateTime.now().isAfter(alarm.getAlarmTime()) && alarm.getActivation())
                     .forEach(Alarm::report);
+            alarmList.getAlarmRingList().removeIf(alarm -> !alarm.getActivation());
         });
-    }
-
-    private void Blue() {
     }
 }
 

@@ -21,6 +21,7 @@ public class AlarmList {
 
     /*Alarm list*/
     private List<Alarm> AlarmList = new ArrayList();
+    private List<Alarm> AlarmRingList = new ArrayList();
 
     private Alarm NextAlarm;
 
@@ -87,19 +88,23 @@ public class AlarmList {
         return AlarmList;
     }
 
-    public void CheckNextAlarm() {
+
+    private void CheckNextAlarm() {
         LocalDateTime timenow = LocalDateTime.now();
         Boolean Checker = false;
+        LoadAlarmList();
         do {
             int index = 0;
             if (index <= AlarmList.size() - 1) {
                 if (timenow.isAfter(AlarmList.get(index).getAlarmTime())) {
+                    AlarmList.get(index).setActivation(false);
                     index++;
                 } else {
-                    if (AlarmList.get(index).getActivation()) {
+                    if (!AlarmList.get(index).getActivation()) {
                         index++;
                     } else {
                         NextAlarm = AlarmList.get(index);
+                        SelectedIndex = index;
                         Checker = true;
                     }
                 }
@@ -138,6 +143,21 @@ public class AlarmList {
             SelectedIndex = CC.SetNum(arg[0]);
         }
         return alarm;
+    }
+
+    public List<Alarm> getAlarmRingList() {
+        LoadAlarmList();
+        for (Alarm a : AlarmList) {
+            if (LocalDateTime.now().isAfter(a.getAlarmTime())) {
+                a.setActivation(false);
+            } else {
+                if (a.getActivation()) {
+                    AlarmRingList.add(a);
+                }
+            }
+        }
+        SaveAlarmList();
+        return AlarmRingList;
     }
 
     public int getSelectedIndex() {
