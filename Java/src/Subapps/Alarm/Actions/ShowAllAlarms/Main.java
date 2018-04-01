@@ -1,6 +1,6 @@
 package Subapps.Alarm.Actions.ShowAllAlarms;
 
-import Subapps.Alarm.AlarmRing.AlarmRing;
+import Subapps.Alarm.Alarm.AlarmRing.AlarmRing;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

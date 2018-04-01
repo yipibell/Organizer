@@ -21,7 +21,6 @@ public class AlarmList {
 
     /*Alarm list*/
     private List<Alarm> AlarmList = new ArrayList();
-    private List<Alarm> AlarmRingList = new ArrayList();
 
     private Alarm NextAlarm;
 
@@ -52,6 +51,7 @@ public class AlarmList {
     }
 
     public void LoadAlarmList() {
+        if (!AlarmList.isEmpty())AlarmList.clear();
         byte[] Decrypt = fe.LoadbitFile(SaveFilelocation);
         Decrypt = Encryption.Decryption(Decrypt, SecretKey);
         String sDecrypt = new String(Decrypt);
@@ -88,36 +88,6 @@ public class AlarmList {
         return AlarmList;
     }
 
-
-    private void CheckNextAlarm() {
-        LocalDateTime timenow = LocalDateTime.now();
-        Boolean Checker = false;
-        LoadAlarmList();
-        do {
-            int index = 0;
-            if (index <= AlarmList.size() - 1) {
-                if (timenow.isAfter(AlarmList.get(index).getAlarmTime())) {
-                    AlarmList.get(index).setActivation(false);
-                    index++;
-                } else {
-                    if (!AlarmList.get(index).getActivation()) {
-                        index++;
-                    } else {
-                        NextAlarm = AlarmList.get(index);
-                        SelectedIndex = index;
-                        Checker = true;
-                    }
-                }
-            } else {
-                Checker = true;
-            }
-        } while (Checker);
-    }
-
-    public Alarm getNextAlarm() {
-        CheckNextAlarm();
-        return NextAlarm;
-    }
     /*selected alarm*/
 
     public void SaveAlarm(Alarm alarm, int index) {
@@ -143,21 +113,6 @@ public class AlarmList {
             SelectedIndex = CC.SetNum(arg[0]);
         }
         return alarm;
-    }
-
-    public List<Alarm> getAlarmRingList() {
-        LoadAlarmList();
-        for (Alarm a : AlarmList) {
-            if (LocalDateTime.now().isAfter(a.getAlarmTime())) {
-                a.setActivation(false);
-            } else {
-                if (a.getActivation()) {
-                    AlarmRingList.add(a);
-                }
-            }
-        }
-        SaveAlarmList();
-        return AlarmRingList;
     }
 
     public int getSelectedIndex() {

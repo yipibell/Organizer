@@ -96,7 +96,9 @@ public class Alarm implements Comparable<Alarm> {
     /*Actions*/
     private OpenNewWindow open = new OpenNewWindow();
     public void report() {
+        System.out.println("1");
+
         alarmList.SaveAlarm(new Alarm(this.Activation, this.AlarmTime, this.Description), 0);
-        open.LoadNewWindow("/Subapps/Alarm/AlarmRing/AlarmRing.fxml", "Alarm!!!", null);
+        open.LoadNewWindow("/Subapps/Alarm/Alarm/AlarmRing/AlarmRing.fxml", "Alarm!!!", null);
     }
 }
